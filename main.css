@@ -1,0 +1,45 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    color: #3D3D3D;
+}
+
+input[type="text"]:focus {
+    border-color: coral;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    outline: 0 none;
+}
+
+button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.header-area {
+    position: sticky;
+    top: 0;
+    z-index: 9;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    padding: 1em 0;
+}
+
+.poetsen-one-regular {
+    font-family: "Poetsen One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: coral;
+    font-size: 1.5em;
+    text-decoration: none;
+}
+
+.search-button {
+    position: absolute;
+    top:0;
+    right: 0;
+    padding-top: 0.45em;
+    padding-right: 0.75em;
+}
+
+.search-button i {
+    color: coral;
+}
