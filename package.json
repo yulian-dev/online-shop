@@ -1,0 +1,23 @@
+{
+  "name": "online_shop",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/yulian-dev/online-shop.git"
+  },
+  "author": "yuliya ivanova",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yulian-dev/online-shop/issues"
+  },
+  "homepage": "https://github.com/yulian-dev/online-shop#readme",
+  "dependencies": {
+    "bootstrap": "^5.3.3",
+    "normalize.css": "^8.0.1"
+  }
+}
