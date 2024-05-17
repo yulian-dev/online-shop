@@ -5,7 +5,7 @@ body {
 
 input[type="text"]:focus {
     border-color: coral;
-    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0 8px 24px;
     outline: 0 none;
 }
 
@@ -20,7 +20,7 @@ button {
     position: sticky;
     top: 0;
     z-index: 9;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0 2px 5px -1px, rgba(0, 0, 0, 0.3) 0 1px 3px -1px;
     background-color: #FFFFFF;
     padding: 1em 0;
 }
@@ -66,14 +66,14 @@ button {
     padding: 1em;
     background-color: #F5F5F5;
     border-radius: 5px;
-    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0 8px 24px;
     transition: all 0.3s ease-in-out;
     cursor: pointer;
 }
 
 .card-item:hover {
     background-color: #FFFFFF;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0 5px 15px;
 }
 
 .card-item img {
@@ -110,7 +110,7 @@ button {
 /* FOOTER */
 .footer-area {
     background-color: #333333;
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0 7px 29px 0;
     color: #FFFFFF;
     padding: 2em 0;
     text-align: center;
