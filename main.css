@@ -159,16 +159,6 @@ button {
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.card-item-price span:first-child {
-    color: coral;
-    font-size: 1.5em;
-    font-weight: 700;
-}
-
-.card-item-price span:last-child {
-    text-decoration: line-through;
-}
-
 .card-brand p {
     text-align: right;
     color: #696969;
