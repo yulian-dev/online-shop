@@ -118,6 +118,11 @@ button {
     box-shadow: rgba(0, 0, 0, 0.35) 0 5px 15px;
 }
 
+.card-item a {
+    color: inherit;
+    text-decoration: none;
+}
+
 .card-item .discount {
     position: absolute;
     top: 10px;
@@ -159,7 +164,21 @@ button {
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.card-brand p {
+.card-brand {
+    padding: 0 1em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-brand img {
+    width: 80px;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card-brand span {
     text-align: right;
     color: #696969;
     font-size: 0.8em;
