@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
     <title>Online Shop</title>
 </head>
-<body>
+<body class="d-flex flex-column min-vh-100">
 <!-- header area -->
 <header class="header-area">
     <div class="container">
@@ -40,17 +40,12 @@
                             </button>
                         </div>
                     </div>
-                    <!-- basket -->
-                    <div class="col-md-1 col-sm-1">
-                        <div class="h-100 d-flex align-items-center justify-content-center">
+                    <!-- basket & favorite -->
+                    <div class="col-md-2 col-sm-2">
+                        <div class="h-100 d-flex align-items-center justify-content-end header-icon-buttons">
                             <button type="button" class="shopping-basket-button">
                                 <i class="fas fa-shopping-basket"></i>
                             </button>
-                        </div>
-                    </div>
-                    <!-- favorite -->
-                    <div class="col-md-1 col-sm-1">
-                        <div class="h-100 d-flex align-items-center justify-content-center">
                             <button type="button" class="favorite-button">
                                 <i class="fas fa-heart"></i>
                             </button>
@@ -63,7 +58,7 @@
 </header>
 
 <!-- carousel area -->
-<section class="carousel-area">
+<section class="carousel-area flex-grow-1">
     <div class="row">
         <div class="col-md-12 col-sm-12">
             <div class="carousel-text">
