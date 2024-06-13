@@ -46,8 +46,31 @@ button {
     color: coral;
 }
 
+.search-tabs ul {
+    list-style-type: none
+}
+
+.search-tabs ul .search-tab-btn {
+    padding: 0.2em 1em;
+    margin: 0.7em 0.75em;
+    border-radius: 15px;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.search-tabs ul li:hover {
+    background-color: coral;
+    color: #F5F5F5;
+}
+
+.active {
+    border-radius: 15px;
+    background-color: coral;
+    color: #F5F5F5;
+}
+
 .header-icon-buttons button {
-    margin: 0 1em;
+    margin: 0.3em 1em;
     transition: 0.2s;
 }
 
