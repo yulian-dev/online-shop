@@ -1,7 +1,7 @@
 // Fetch Product Cards API
 const getProducts = async () => {
     try {
-        let api = await fetch(`http://152.69.163.31:31301/products`);
+        let api = await fetch(`http://152.69.163.31/shop/products`);
         return await api.json();
     } catch (error) {
         console.error('Error:', error);
@@ -9,32 +9,29 @@ const getProducts = async () => {
     }
 }
 
-// Create Product Cards
-const products = document.getElementById('products');
-
-if (products) {
-    getProducts().then(data => {
-        let cards = data.map(card => {
-            return `<div class="col-md-3 col-sm-6 card-wrapper">
-                        <div id="${card.id}" class="card-item">
-                            <a href="product.html?id=${card.id}&name=${card.name}&brand=${card.brand}" target="_self" >
-                                ${card.discount ? `<span class="discount">${card.discountPercentage}</span>` : ""}
+// Create HTML Product Cards
+const createCards = (data) => {
+    return data.map(item => {
+        return `<div class="col-md-3 col-sm-6 card-wrapper">
+                        <div id="${item.id}" class="card-item">
+                            <a href="product.html?id=${item.id}&name=${item.name}&brand=${item.brand}" target="_self" >
+                                ${item.discount ? `<span class="discount">${item.discountPercentage}</span>` : ""}
                                 <div class="card-image">
-                                    <img src="${card.image}" alt="${card.name}">
+                                    <img src="${item.image}" alt="${item.name}">
                                 </div>
                                 <div class="card-item-body">
-                                    <h6><strong>${card.name}</strong> <br> ${card.quantity}</h6>
+                                    <h6><strong>${item.name}</strong> <br> ${item.quantity}</h6>
                                     <div class="card-item-price">
-                                        ${card.discount
-                                            ? `<span style="color: coral; font-size: 1.5em; font-weight: 700;">$ ${card.priceWithDiscount}</span>`
+                                        ${item.discount
+                                            ? `<span style="color: coral; font-size: 1.5em; font-weight: 700;">$ ${item.priceWithDiscount}</span>`
                                             : ""}
-                                        ${card.discount
-                                            ? `<span style="text-decoration: line-through;">Was $ ${card.price}</span>`
-                                            : `<span style="font-size: 1.5em;">$ ${card.price}</span>`}
+                                        ${item.discount
+                                            ? `<span style="text-decoration: line-through;">Was $ ${item.price}</span>`
+                                            : `<span style="font-size: 1.5em;">$ ${item.price}</span>`}
                                     </div>
                                     <div class="card-brand">
-                                        <span>${card.brand}</span>
-                                        <img src="${card.nootritionQualityImage}" alt="${card.nootritionQuality}">
+                                        <span>${item.brand}</span>
+                                        <img src="${item.nootritionQualityImage}" alt="${item.nootritionQuality}">
                                     </div>
                                     <div class="card-button">
                                         <button type="button" class="btn btn-outline-danger">Add</button>
@@ -43,15 +40,21 @@ if (products) {
                             </a>
                         </div>
                     </div>`
-        })
-        products.innerHTML = cards.join('');
+    }).join('');
+}
+
+const products = document.getElementById('products');
+
+if (products) {
+    getProducts().then(data => {
+        products.innerHTML = createCards(data);
     })
 }
 
 // Fetch Product API
 const getProduct = async (id) => {
     try {
-        let api = await fetch(`http://152.69.163.31:31301/products/${id}`);
+        let api = await fetch(`http://152.69.163.31/shop/products/${id}`);
         return await api.json();
     } catch (error) {
         console.error('Error:', error);
@@ -59,7 +62,7 @@ const getProduct = async (id) => {
     }
 }
 
-// Create Product
+// Create HTML Product Card
 const product = document.getElementById('product');
 
 if (product) {
@@ -98,3 +101,53 @@ if (product) {
                                 </div>`;
     }).catch(error => console.log('Error: ', error))
 }
+
+// Filtering Tabs
+const filterProducts = (value) => {
+    const products = document.getElementById('products');
+
+    if (value.toLowerCase() === 'discount') {
+        getProducts().then(data => {
+            const filteredData = data.filter(item => item.discount);
+            products.innerHTML = createCards(filteredData);
+        })
+    } else {
+        getProducts().then(data => {
+            products.innerHTML = createCards(data);
+        })
+    }
+}
+
+const setActiveTab = (value) => {
+    const tabs = document.querySelectorAll('.search-tab-btn');
+
+    tabs.forEach(tab => {
+        if (value.toUpperCase() === tab.innerText.toUpperCase()) {
+            tab.classList.add('active');
+        } else {
+            tab.classList.remove('active');
+        }
+    })
+}
+setActiveTab('all');
+
+const tabs = document.querySelectorAll('.search-tab-btn');
+
+tabs.forEach(tab => {
+    tab.addEventListener('click', event => {
+        const value = event.target.innerText;
+        setActiveTab(value);
+        filterProducts(value);
+    })
+})
+
+// Live Search
+const searchInput = document.getElementById('search-input');
+
+searchInput.addEventListener('input', (event) => {
+    const value = event.target.value;
+    getProducts().then(data => {
+        const filteredData = data.filter(item => item.name.toLowerCase().includes(value.toLowerCase()));
+        products.innerHTML = createCards(filteredData);
+    })
+});

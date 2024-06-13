@@ -34,15 +34,21 @@
                     <!-- search -->
                     <div class="col-md-7 col-sm-7">
                         <div class="d-flex form-inputs position-relative">
-                            <input class="form-control" type="text" placeholder="Search any product...">
+                            <input id="search-input" class="form-control" type="search" placeholder="Search any product...">
                             <button type="submit" class="search-button">
                                 <i class="fas fa-search"></i>
                             </button>
                         </div>
+                        <div class="search-tabs">
+                            <ul class="p-0 d-flex flex-row">
+                                <li class="search-tab-btn" value="all">All</li>
+                                <li class="search-tab-btn" value="discount">Discount</li>
+                            </ul>
+                        </div>
                     </div>
                     <!-- basket & favorite -->
                     <div class="col-md-2 col-sm-2">
-                        <div class="h-100 d-flex align-items-center justify-content-end header-icon-buttons">
+                        <div class="h-100 d-flex align-items-start header-icon-buttons">
                             <button type="button" class="shopping-basket-button">
                                 <i class="fas fa-shopping-basket"></i>
                             </button>
